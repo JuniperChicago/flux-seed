@@ -19080,6 +19080,26 @@ module.exports = AddToCart;
 
 },{"../actions/AppActions":154,"react":153}],156:[function(require,module,exports){
 var React = require('react');
+var Catalog = require('../components/Catalog');
+var Cart = require('../components/Cart');
+
+var APP = React.createClass({displayName: "APP",
+
+    render: function(){
+        return (React.createElement("div", null, 
+        			React.createElement("h1", null, "Lets Shop"), 
+        			React.createElement(Catalog, null), 
+        			React.createElement("h1", null, "Cart"), 
+        			React.createElement(Cart, null)
+        		)
+        )
+    }
+});
+
+module.exports = APP;
+
+},{"../components/Cart":157,"../components/Catalog":158,"react":153}],157:[function(require,module,exports){
+var React = require('react');
 var AppStore = require('../stores/AppStore');
 var RemoveFromCart = require('../components/RemoveFromCart');
 var Increase = require('../components/Increase');
@@ -19152,7 +19172,7 @@ var Cart = React.createClass({displayName: "Cart",
 module.exports = Cart;
 
 
-},{"../components/Decrease":158,"../components/Increase":159,"../components/RemoveFromCart":160,"../stores/AppStore":165,"react":153}],157:[function(require,module,exports){
+},{"../components/Decrease":159,"../components/Increase":160,"../components/RemoveFromCart":161,"../stores/AppStore":165,"react":153}],158:[function(require,module,exports){
 var React = require('react');
 var AppStore = require('../stores/AppStore');
 var AddToCart = require('../components/AddToCart');
@@ -19196,7 +19216,7 @@ var Catalog = React.createClass({displayName: "Catalog",
 module.exports = Catalog;
 
 
-},{"../components/AddToCart":155,"../stores/AppStore":165,"react":153}],158:[function(require,module,exports){
+},{"../components/AddToCart":155,"../stores/AppStore":165,"react":153}],159:[function(require,module,exports){
 var React = require('react');
 var AppActions = require('../actions/AppActions');
 
@@ -19215,7 +19235,7 @@ var Decrease = React.createClass({displayName: "Decrease",
 
 module.exports = Decrease;
 
-},{"../actions/AppActions":154,"react":153}],159:[function(require,module,exports){
+},{"../actions/AppActions":154,"react":153}],160:[function(require,module,exports){
 var React = require('react');
 var AppActions = require('../actions/AppActions');
 
@@ -19234,7 +19254,7 @@ var Increase = React.createClass({displayName: "Increase",
 
 module.exports = Increase;
 
-},{"../actions/AppActions":154,"react":153}],160:[function(require,module,exports){
+},{"../actions/AppActions":154,"react":153}],161:[function(require,module,exports){
 var React = require('react');
 var AppActions = require('../actions/AppActions');
 
@@ -19252,27 +19272,7 @@ var RemoveFromCart = React.createClass({displayName: "RemoveFromCart",
 
 module.exports = RemoveFromCart;
 
-},{"../actions/AppActions":154,"react":153}],161:[function(require,module,exports){
-var React = require('react');
-var Catalog = require('../components/Catalog');
-var Cart = require('../components/Cart');
-
-var APP = React.createClass({displayName: "APP",
-
-    render: function(){
-        return (React.createElement("div", null, 
-        			React.createElement("h1", null, "Lets Shop"), 
-        			React.createElement(Catalog, null), 
-        			React.createElement("h1", null, "Cart"), 
-        			React.createElement(Cart, null)
-        		)
-        )
-    }
-});
-
-module.exports = APP;
-
-},{"../components/Cart":156,"../components/Catalog":157,"react":153}],162:[function(require,module,exports){
+},{"../actions/AppActions":154,"react":153}],162:[function(require,module,exports){
 
 var keyMirror = require('keymirror');
 
@@ -19332,7 +19332,7 @@ module.exports = new Dispatcher();
 /** @jsx React.DOM */
 
 var React = require('react');
-var APP = require('./components/app');
+var APP = require('./components/App');
 
 React.render(React.createElement(APP, null), document.getElementById('main'));
 
@@ -19341,7 +19341,7 @@ React.render(React.createElement(APP, null), document.getElementById('main'));
 
 
 
-},{"./components/app":161,"react":153}],165:[function(require,module,exports){
+},{"./components/App":156,"react":153}],165:[function(require,module,exports){
 
 // REQUIRED ////////////////////////////////////////////////////////////
 var AppDispatcher   = require('../dispatchers/AppDispatcher');
