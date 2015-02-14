@@ -1,0 +1,6 @@
+{
+  "name": "JuniperChicago/flux-seed",
+  "dependencies": {
+    "foundation": "~5.5.1"
+  }
+}
