@@ -1,14 +1,18 @@
 
+// REQUIRED ////////////////////////////////////////////////////////////
 var AppDispatcher   = require('../dispatchers/AppDispatcher');
+//constants are used because all should be unique
 var AppConstants    = require('../constants/AppConstants');
-var EventEmitter    = require('events').EventEmitter;
 
+var EventEmitter    = require('events').EventEmitter;
 var assign          = require('object-assign');
 
 
-
+// EVENTS //////////////////////////////////////////////////////////////
 var CHANGE_EVENT    = "change";
 
+
+// PRIVATE OBJECTS /////////////////////////////////////////////////////
 var _catalog = [
 	{id: 1, title: 'widget #1', cost: 1}, 
 	{id: 2, title: 'widget #2', cost: 2}, 
@@ -17,12 +21,7 @@ var _catalog = [
 
 var _cartItems = [];
 
-/**
-	Store Functions
-
-*/
-
-
+// PRIVATE FUNCTIONS ///////////////////////////////////////////////////
 function _removeItem(index){
 	_cartItems[index].inCart = false;
 	_cartItems.splice(index, 1);
@@ -55,17 +54,17 @@ function _addItem(item){
 };
 
 
-/**
 
-*/
-
+// STORE SINGLETON + EVENT EMITTER
 var AppStore = assign({}, EventEmitter.prototype, {
 	
+	// EMITTERS & LISTENERS ////////////////////////////////////////////
 	emitChange: function(){
 		console.log(_cartItems);
 		this.emit(CHANGE_EVENT)
 	},
 	
+	//listeners
 	addChangeListener: function(callback){
 		this.on(CHANGE_EVENT, callback)
 	},
@@ -74,6 +73,7 @@ var AppStore = assign({}, EventEmitter.prototype, {
 		this.removeListener(CHANGE_EVENT, callback)
 	},
 
+	// PUBLIC FUNCTIONS ////////////////////////////////////////////////
 	getCart: function(){
 		return _cartItems
 	},
@@ -83,11 +83,9 @@ var AppStore = assign({}, EventEmitter.prototype, {
 	}
 
 });
-	/**
-		Registers callbacks with dispatcher
 
 
-	*/
+// DISPATCHER REGISTRATION /////////////////////////////////////////////
 AppDispatcher.register(function(action){
 
 	switch(action.actionType){

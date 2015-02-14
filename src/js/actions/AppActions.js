@@ -1,6 +1,19 @@
 var AppConstants = require('../constants/AppConstants');
 var AppDispatcher = require('../dispatchers/AppDispatcher');
 
+/**
+	These actions are the only functions the view components,
+	or React components, have access to. These actions are
+	intermediate handles that are understood by the dispatcher
+	and linked to registered stores.
+
+*/
+
+
+
+
+// These actions serve as handles for those registered in the dispatcjer 
+// by the store
 
 var AppActions = {
 
