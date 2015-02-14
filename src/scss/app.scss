@@ -1,0 +1,16 @@
+@import "foundation-components";
+//Allow nesting of buttons in tables
+//provide formatting options
+td {
+    button.button {
+        margin: 0;
+    }
+    //remove focus highlighting from buttons nested in tables
+    button:focus {
+        outline: 0;
+    }
+}
+
+td.td-center {
+    text-align: center;
+}
